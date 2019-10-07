@@ -1,0 +1,2 @@
+database:
+  url: MONGODB_URI
