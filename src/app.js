@@ -22,6 +22,7 @@ router.routes().router.stack.forEach((route) => {
 });
 
 function connect() {
+  return Promise.resolve();
   return mongoose.connect(config.database.url, {
     useCreateIndex: true,
     useNewUrlParser: true,
