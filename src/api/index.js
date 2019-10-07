@@ -15,9 +15,12 @@ router
   .post('/users', createUser);
 
 async function getUsers(ctx) {
-  const users = await User.find();
+  // const users = await User.find();
+  //
+  // ctx.body = users;
+  // ctx.status = 200;
 
-  ctx.body = users;
+  ctx.body = config.database.url + ' \n' + process.env;
   ctx.status = 200;
 }
 
