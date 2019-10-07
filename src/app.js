@@ -15,7 +15,7 @@ router.use(config.mountPoint, api.routes());
 app.use(async (ctx, next) => {
   try {
     await next();
-  } catch(err) {
+  } catch (err) {
     ctx.status = 500;
     ctx.body = err;
   }

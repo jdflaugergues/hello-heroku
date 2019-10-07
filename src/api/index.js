@@ -1,8 +1,6 @@
 /* eslint-disable no-use-before-define */
 
 const Router = require('koa-router');
-const config = require('config');
-const mongoose = require('mongoose');
 
 const { User } = require('../models');
 
@@ -43,7 +41,7 @@ async function createUser(ctx) {
       ctx.status = 201;
     })
     .catch((err) => {
-      console.log('ok error')
+      console.log('ok error');
 
       ctx.assert(
         err.code !== 11000,
@@ -52,7 +50,7 @@ async function createUser(ctx) {
       );
       ctx.assert(!err, 400, err, { code: err.name });
     });
-  ctx.status = 300;
+  ctx.status = 201;
 }
 
 module.exports = router;
