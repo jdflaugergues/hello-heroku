@@ -1,7 +1,10 @@
 {
-  "addons": [
-
-  ],
+  "addons": [{
+    "plan": "mongolab:sandbox",
+    "options": {
+      "version": "3.6.9"
+    }
+  }],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
