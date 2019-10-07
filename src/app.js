@@ -1,6 +1,7 @@
 const config = require('config');
 const Koa = require('koa');
 const router = require('koa-router')();
+const koaLogger = require('koa-logger');
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
@@ -11,6 +12,15 @@ const app = new Koa();
 
 router.use(config.mountPoint, api.routes());
 
+app.use(async (ctx, next) => {
+  try {
+    await next();
+  } catch(err) {
+    ctx.status = 500;
+    ctx.body = err;
+  }
+});
+app.use(koaLogger());
 app.use(router.routes());
 app.use(router.allowedMethods());
 
@@ -22,9 +32,8 @@ router.routes().router.stack.forEach((route) => {
 });
 
 function connect() {
-  return Promise.resolve();
   return mongoose.connect(config.database.url, {
-    useCreateIndex: true,
+    // useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
