@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define */
 
 const Router = require('koa-router');
+const config = require('config');
 
 const { User } = require('../models');
 
