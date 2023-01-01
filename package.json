@@ -24,7 +24,7 @@
     "tape": "4.11.0"
   },
   "dependencies": {
-    "config": "^3.2.3",
+    "config": "^3.3.8",
     "js-yaml": "^3.13.1",
     "koa": "^2.8.2",
     "koa-logger": "^3.2.1",
